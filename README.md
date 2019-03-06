@@ -1,6 +1,9 @@
 # Protocol Buffers + Docker
 All inclusive protoc suite, powered by Docker and Alpine Linux.
 
+## This fork
+I made this fork to add multiple extentions. Maybe later I will try and PR them back to the original. For now this is experimental.
+
 ## What's included:
 - protobuf 3.6.0.1
 - gRPC 1.13.0
@@ -36,13 +39,13 @@ All inclusive protoc suite, powered by Docker and Alpine Linux.
 
 ## Usage
 ```
-$ docker run --rm znly/protoc --help
+$ docker run --rm mvmaasakkers/protoc --help
 Usage: /usr/bin/protoc [OPTION] PROTO_FILES
 ```
 
 Don't forget you need to bind mount your files:
 ```
-$ docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc --python_out=. -I. myfile.proto
+$ docker run --rm -v $(pwd):$(pwd) -w $(pwd) mvmaasakkers/protoc --python_out=. -I. myfile.proto
 ```
 
 ## Google Well Known Types

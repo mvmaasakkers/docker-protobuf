@@ -51,6 +51,8 @@ RUN find ${OUTDIR} -name "*.a" -delete -or -name "*.la" -delete
 RUN apk add --no-cache go
 ENV GOPATH=/go \
         PATH=/go/bin/:$PATH
+RUN mkdir -p /go/bin
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 RUN go get -u -v -ldflags '-w -s' \
         github.com/Masterminds/glide \
         github.com/golang/protobuf/protoc-gen-go \
@@ -69,8 +71,8 @@ RUN go get -u -v -ldflags '-w -s' \
         github.com/lyft/protoc-gen-validate \
         moul.io/protoc-gen-gotemplate \
         github.com/micro/protoc-gen-micro \
-        github.com/infobloxopen/protoc-gen-gorm \
         && (cd ${GOPATH}/src/github.com/lyft/protoc-gen-validate && make build) \
+        && (go get -u -v github.com/infobloxopen/protoc-gen-gorm; cd ${GOPATH}/src/github.com/infobloxopen/protoc-gen-gorm && make vendor && make install ) \
         && install -c ${GOPATH}/bin/protoc-gen* ${OUTDIR}/usr/bin/
 
 RUN mkdir -p ${GOPATH}/src/github.com/pseudomuto/protoc-gen-doc && \
