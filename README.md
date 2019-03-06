@@ -19,6 +19,7 @@ All inclusive protoc suite, powered by Docker and Alpine Linux.
   - github.com/mwitkow/go-proto-validators
   - github.com/moul/protoc-gen-gotemplate
   - github.com/micro/protoc-gen-micro
+  - github.com/infobloxopen/protoc-gen-gorm
 
 ## Supported languages
 - C
