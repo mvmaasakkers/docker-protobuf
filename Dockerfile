@@ -175,6 +175,8 @@ RUN apk add --no-cache curl && \
         mkdir -p /protobuf/github.com/lyft/protoc-gen-validate/validate && \
         curl -L -o /protobuf/github.com/lyft/protoc-gen-validate/gogoproto/gogo.proto https://raw.githubusercontent.com/lyft/protoc-gen-validate/master/gogoproto/gogo.proto && \
         curl -L -o /protobuf/github.com/lyft/protoc-gen-validate/validate/validate.proto https://raw.githubusercontent.com/lyft/protoc-gen-validate/master/validate/validate.proto && \
+        mkdir -p /protobuf/github.com/infobloxopen/protoc-gen-gorm/options && \
+        curl -L -o /protobuf/github.com/infobloxopen/protoc-gen-gorm/options/gorm.proto https://raw.githubusercontent.com/infobloxopen/protoc-gen-gorm/master/options/gorm.proto && \
         apk del curl && \
         chmod a+x /usr/bin/protoc
 
